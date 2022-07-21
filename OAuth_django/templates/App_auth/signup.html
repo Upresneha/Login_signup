@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <title>Signup Page</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: white;
+            }
+            button{
+                background-color: #14b64a;
+                width: 15%;
+                padding: 15px;
+                color: black;
+                border: none;
+                float: center;
+                font-size: 15px;
+            }
+            label{
+                font-size: 20px;
+            }
+            b{
+                color: blanchedalmond;
+            }
+            p{
+                color: aliceblue;
+            }
+            a{
+                color: aliceblue;
+            }
+            form{
+                border: 3px solid #f1f1f1;
+            }
+            input[type=email],input[type=text],input[type=password]{
+                width: 30%;
+                font-size: 15px;
+                margin: 8px 0px;
+                padding: 10px 18px;
+                display: block;
+                border: 2px solid rgb(18, 19, 18);
+                /* box-sizing: border-box; */
+            }
+            input[type=radio]{
+                height: 18px;
+                width: 18px;
+            }
+            button:hover{
+                opacity:0.7;
+
+            }
+            .container{
+                padding: 100px;
+                background-color: white;
+                background: url("https://images.alphacoders.com/882/882606.jpg");
+            }
+            /* .imgcontainer {
+                text-align: center;
+                margin: 24px 0 12px 0;
+            }
+               */
+            img.avatar {
+                width: 100;
+                border-radius: 50%;
+            }  
+        </style>
+    </head>
+    <body>
+    
+        <form action="#" method="post">
+            {% csrf_token %}
+            {% load static %}
+            {% for field in form %}  
+      <p>  
+        {{ field.label_tag }}<br>  
+        {{ field }}  
+        {% if field.help_text %}  
+          <small style="display: none ">{{ field.help_text }}</small>  
+        {% endif %}  
+        {% for error in field.errors %}  
+          <p style="color: red">{{ error }}</p>  
+        {% endfor %}  
+      </p>  
+      {% endfor %}  
+            <div class="container">
+                <!-- <div class="imgcontainer">
+                    <img src="" alt="Avatar" class="avatar">
+                </div> -->
+                <label for='first_name'><b>First Name : </b></label>
+		        <input type='text' placeholder="Enter your first name" name='first_name' required><br>
+		        <label for='last_name'><b>Last Name :</b></label>
+		        <input type='text' placeholder='Enter your last name' name='last_name' required><br>
+		        <label for='sex' ><b>Sex : </b></label>
+		        <input type='radio' name='sex' value='male' required>
+		        <label ><b>Male</b></label>
+		        <input type='radio' name='sex' value='female' required>
+		        <label ><b>Female</b></label><br>
+            	<label for ='email'><b>Email Id :  </b></label>
+            	<input type="email" placeholder="Enter email" name="email" float="right"  required><br>  
+            	<label for='password'><b> Create a Password : </b></label>
+            	<input type="password" placeholder="Enter Password" name="password" required><br>  
+            	<button type="submit"><b>Signup</b></button><br>     
+            	<p>Already an accounct ?<a href="http://localhost:8000/accounts/login-or-signup/"> Login </a></p>
+            </div>
+        </form>
+    </body>
+</html>

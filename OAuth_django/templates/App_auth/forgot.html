@@ -1,0 +1,15 @@
+{% block title %}Forgot Your Password?{% endblock %}
+
+{% block content %}
+  <h1>Forgot your password?</h1>
+  <p>Enter your email address below.</p>
+
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <label for ='email'><b>Email Id :  </b></label>
+            	<input type="email" placeholder="Enter email" name="email" float="right"  required><br>
+                <br>
+    <input type="submit" value="Reset!">
+  </form>
+{% endblock %}
