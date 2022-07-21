@@ -30,28 +30,7 @@ def login_or_signup(request):
     return render(request, 'App_auth/login_or_signup.html')
 
 
-# @csrf_exempt
-# def login_signup(request):
-#     if request.method == 'POST':
-#         email = request.POST.get('email')
-#         password = request.POST.get('password')
-#         user = authenticate(username=email, password=password)
-#         if user:
-#             login(request, user)
-#             return HttpResponseRedirect(reverse('App_auth:home'))
-#         else:
-#             createUser = User(username=email)
-#             createUser.set_password(password)
-#             createUser.save()
-#             user = authenticate(username=email, password=password)
-#             login(request, user)
-#             return HttpResponseRedirect(reverse('App_auth:home'))
 
-#     return HttpResponseRedirect(reverse('App_auth:login-signup'))
-
-
-
-# Create your views here.
 
 
 @csrf_exempt
